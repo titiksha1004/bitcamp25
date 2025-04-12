@@ -15,7 +15,7 @@
         input="dtmf" 
         timeout="5" 
         numDigits="1" 
-        action="https://YOUR_PUBLIC_URL/ai_therapist_step2.xml" 
+        action="https://titiksha1004.github.io/bitcamp25/ai_therapist.xml" 
         method="POST">
         <Say>When you are ready, enter a number.</Say>
     </Gather>

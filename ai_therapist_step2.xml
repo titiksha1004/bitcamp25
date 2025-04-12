@@ -9,7 +9,7 @@
         input="dtmf" 
         timeout="10" 
         numDigits="1" 
-        action="https://YOUR_PUBLIC_URL/ai_therapist_finalize.xml" 
+        action="https://titiksha1004.github.io/bitcamp25/ai_therapist.xml" 
         method="POST">
         <Say>
             Based on your selection, here is some encouragement:
