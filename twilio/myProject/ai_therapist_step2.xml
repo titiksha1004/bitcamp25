@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Pause length="1"/>
+    <Say voice="alice">
+        Processing your request...
+    </Say>
+
+    <Gather 
+        input="dtmf" 
+        timeout="10" 
+        numDigits="1" 
+        action="https://YOUR_PUBLIC_URL/ai_therapist_finalize.xml" 
+        method="POST">
+        <Say>
+            Based on your selection, here is some encouragement:
+            Substance abuse recovery is possible.
+            Consider talking to a professional counselor for personalized help.
+            For more options, press any key, or hang up to end this call.
+        </Say>
+    </Gather>
+</Response>

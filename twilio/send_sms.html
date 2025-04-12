@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Send SMS with Twilio (Pure JS)</title>
+</head>
+<body>
+  <button id="sendBtn">Send SMS</button>
+
+  <script>
+    // WARNING: Exposing your real credentials in client-side code is insecure. 
+    const accountSid = "AC317f3daf20e425f911c64841028c164b"; // e.g., "ACxxxxxxxxxxxxxxxxxxxx"
+    const authToken  = "971d7f01c38d1ae34c5ed6363299a32b";  // e.g., "123abc456def..."
+
+    const fromNumber = "+19472175415"; // Your Twilio number
+    const toNumber   = "+16092976126"; // Recipient's number
+
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      try {
+        // Prepare the data (form-encoded for Twilio's API)
+        const bodyData = new URLSearchParams();
+        bodyData.append("Body", "Hello from JavaScript in the browser!");
+        bodyData.append("From", fromNumber);
+        bodyData.append("To", toNumber);
+
+        // Make the request to Twilio
+        const response = await fetch(
+          `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`,
+          {
+            method: "POST",
+            headers: {
+              // Basic Auth with your accountSid as username, authToken as password
+              "Authorization": "Basic " + btoa(accountSid + ":" + authToken),
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: bodyData.toString()
+          }
+        );
+
+        // Read the response
+        if (!response.ok) {
+          throw new Error(`HTTP Error! Status: ${response.status}`);
+        }
+        const result = await response.json();
+        console.log("Message SID:", result.sid);
+        alert("SMS sent! Check console for SID.");
+      } catch (err) {
+        console.error("Error sending SMS:", err);
+        alert("Failed to send SMS. Check console for details.");
+      }
+    });
+  </script>
+</body>
+</html>

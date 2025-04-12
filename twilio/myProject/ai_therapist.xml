@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <!-- Greeting and disclaimer -->
+    <Say voice="alice">
+        Hello. Welcome to your AI Therapy session for substance abuse support.
+        Please note that this is not a real therapy service, 
+        and for any serious crisis, contact a professional or an emergency hotline.
+        Press 1 for tips on managing cravings,
+        press 2 for motivational messages,
+        or press 3 for a brief mindfulness exercise.
+    </Say>
+
+    <!-- Gather user input -->
+    <Gather 
+        input="dtmf" 
+        timeout="5" 
+        numDigits="1" 
+        action="https://YOUR_PUBLIC_URL/ai_therapist_step2.xml" 
+        method="POST">
+        <Say>When you are ready, enter a number.</Say>
+    </Gather>
+
+    <!-- If no input is received, we do not loop back; just end -->
+    <Say>We did not receive any input. Goodbye.</Say>
+</Response>

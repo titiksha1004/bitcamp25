@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Say voice="alice">
+        Thank you for taking a step towards better health. 
+        You are not alone. 
+        If you need immediate assistance, please reach out to a trusted hotline. 
+        Goodbye.
+    </Say>
+    <Hangup/>
+</Response>
